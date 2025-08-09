@@ -1,0 +1,11 @@
+/* Ensure the layout stretches full height */
+:host {
+  display: block;
+  min-height: 100vh;
+}
+
+/* Make sure footer stays at the bottom */
+.flex {
+  display: flex;
+  flex-direction: column;
+}
