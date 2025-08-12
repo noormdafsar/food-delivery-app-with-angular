@@ -1,1 +1,31 @@
-<p>home works!</p>
+<div class="home-container">
+  <!-- Filter Input -->
+  <div class="filter-section">
+    <input 
+      type="text" 
+      placeholder="Search restaurants by name..." 
+      [(ngModel)]="filterText"
+      class="filter-input">
+  </div>
+
+  <!-- Restaurants Grid -->
+  <div class="restaurants-grid">
+    <div *ngFor="let restaurant of filteredRestaurants" class="restaurant-card">
+      <div class="restaurant-image">
+        <img [src]="'/images/' + restaurant.image" [alt]="restaurant.name" />
+      </div>
+      <div class="restaurant-info">
+        <h3>{{ restaurant.name }}</h3>
+        <p class="cuisine">{{ restaurant.cuisine }}</p>
+        <div class="rating">
+          <span>⭐ {{ restaurant.rating }}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- No results message -->
+  <div *ngIf="filteredRestaurants.length === 0" class="no-results">
+    <p>No restaurants found matching "{{ filterText }}"</p>
+  </div>
+</div>
